@@ -1,2 +1,79 @@
 # tiny-secondhand-shopping-platform
 Secure coding assignment: Tiny Second-hand Shopping Platform
+
+# Tiny Second-hand Shopping Platform
+
+Secure Coding 과제용으로 개발한 Django 기반 중고거래 플랫폼입니다.
+
+사용자는 회원가입 후 상품을 등록하고, 다른 사용자의 상품을 검색 및 조회할 수 있습니다.  
+또한 전체 채팅, 상품 판매자와의 1:1 메시지, 상품/사용자 신고, 포인트 송금 기능을 사용할 수 있습니다.  
+관리자는 Django Admin과 관리자 대시보드를 통해 플랫폼의 주요 요소를 관리할 수 있습니다.
+
+---
+
+## 1. 개발 환경
+
+- Python 3.x
+- Django
+- SQLite
+- Bootstrap 5
+- macOS 기준으로 개발
+
+---
+
+## 2. 주요 기능
+
+### 사용자 기능
+
+- 회원가입
+- 로그인 / 로그아웃
+- 마이페이지
+- 사용자 프로필 관리
+- 기본 포인트 지급
+
+### 상품 기능
+
+- 상품 등록
+- 상품 목록 조회
+- 상품 상세 조회
+- 상품 수정
+- 상품 삭제
+- 상품 이미지 업로드
+- 상품 검색
+
+### 소통 기능
+
+- 전체 채팅
+- 상품 판매자와 1:1 메시지
+- 메시지함
+
+### 신고 및 차단 기능
+
+- 상품 신고
+- 사용자 신고
+- 동일 대상 중복 신고 방지
+- 상품 신고 3회 이상 시 자동 차단
+- 사용자 신고 5회 이상 시 휴면 계정 처리
+
+### 송금 기능
+
+- 사용자 간 포인트 송금
+- 송금 내역 조회
+- 잔액 초과 송금 방지
+- 자기 자신에게 송금 방지
+
+### 관리자 기능
+
+- Django Admin을 통한 데이터 관리
+- 관리자 전용 대시보드
+- 사용자, 상품, 메시지, 신고, 송금 기록 관리
+
+---
+
+## 3. 설치 및 실행 방법
+
+### 1) Repository clone
+
+```bash
+git clone https://github.com/junkilee80/tiny-secondhand-shopping-platform.git
+cd tiny-secondhand-shopping-platform
