@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>포인트 송금</h2>
+
+<div class="alert alert-info">
+    현재 보유 포인트:
+    <strong>{{ request.user.profile.points }}</strong> point
+</div>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit" class="btn btn-primary">송금하기</button>
+    <a href="{% url 'payments:history' %}" class="btn btn-secondary">송금 내역</a>
+</form>
+{% endblock %}

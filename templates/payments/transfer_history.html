@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>송금 내역</h2>
+
+<div class="mb-3">
+    <a href="{% url 'payments:transfer' %}" class="btn btn-primary">포인트 송금</a>
+</div>
+
+{% for transfer in transfers %}
+    <div class="card mb-2">
+        <div class="card-body">
+            <p class="mb-1">
+                <strong>{{ transfer.sender.username }}</strong>
+                →
+                <strong>{{ transfer.receiver.username }}</strong>
+            </p>
+
+            <p class="mb-1">
+                금액: {{ transfer.amount }} point
+            </p>
+
+            {% if transfer.memo %}
+                <p class="mb-1">
+                    메모: {{ transfer.memo }}
+                </p>
+            {% endif %}
+
+            <small class="text-muted">
+                {{ transfer.created_at }}
+            </small>
+        </div>
+    </div>
+{% empty %}
+    <p>송금 내역이 없습니다.</p>
+{% endfor %}
+{% endblock %}
