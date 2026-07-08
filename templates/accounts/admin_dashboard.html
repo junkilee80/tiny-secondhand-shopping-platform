@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>관리자 대시보드</h2>
+
+<div class="alert alert-info">
+    이 페이지는 관리자만 접근할 수 있습니다.
+</div>
+
+<div class="row">
+    <div class="col-md-4 mb-3">
+        <div class="card">
+            <div class="card-body">
+                <h5>전체 사용자 수</h5>
+                <p class="fs-3">{{ user_count }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <div class="card">
+            <div class="card-body">
+                <h5>전체 상품 수</h5>
+                <p class="fs-3">{{ product_count }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <div class="card">
+            <div class="card-body">
+                <h5>차단된 상품 수</h5>
+                <p class="fs-3">{{ blocked_product_count }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <div class="card">
+            <div class="card-body">
+                <h5>신고 수</h5>
+                <p class="fs-3">{{ report_count }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <div class="card">
+            <div class="card-body">
+                <h5>휴면 사용자 수</h5>
+                <p class="fs-3">{{ suspended_user_count }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <div class="card">
+            <div class="card-body">
+                <h5>메시지 수</h5>
+                <p class="fs-3">{{ message_count }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <div class="card">
+            <div class="card-body">
+                <h5>송금 기록 수</h5>
+                <p class="fs-3">{{ transfer_count }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<a href="/admin/" class="btn btn-dark">Django Admin으로 이동</a>
+{% endblock %}
