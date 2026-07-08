@@ -29,6 +29,20 @@
         >
             판매자에게 문의하기
         </a>
+
+        <a
+            href="{% url 'reports:product' product.id %}"
+            class="btn btn-outline-danger"
+        >
+            상품 신고
+        </a>
+
+        <a
+            href="{% url 'reports:user' product.seller.id %}"
+            class="btn btn-outline-danger"
+        >
+            판매자 신고
+        </a>
     {% endif %}
 
     {% if user == product.seller %}

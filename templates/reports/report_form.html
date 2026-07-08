@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>{{ target_type }} 신고</h2>
+
+<div class="alert alert-warning">
+    <strong>{{ target_name }}</strong> 을/를 신고합니다.
+</div>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit" class="btn btn-danger">신고하기</button>
+    <a href="{% url 'products:list' %}" class="btn btn-secondary">취소</a>
+</form>
+{% endblock %}

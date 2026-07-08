@@ -9,6 +9,7 @@ urlpatterns = [
     path("accounts/", include("accounts.urls")),
     path("products/", include("products.urls")),
     path("chat/", include("chat.urls")),
+    path("reports/", include("reports.urls")),
     path("", TemplateView.as_view(template_name="home.html"), name="home"),
 ]
 
