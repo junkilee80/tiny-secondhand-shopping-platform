@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>마이페이지</h2>
+
+<div class="card mb-3">
+    <div class="card-body">
+        <p><strong>아이디:</strong> {{ request.user.username }}</p>
+        <p><strong>이메일:</strong> {{ request.user.email }}</p>
+        <p><strong>보유 포인트:</strong> {{ request.user.profile.points }}</p>
+        <p><strong>휴면 여부:</strong> {{ request.user.profile.is_suspended }}</p>
+    </div>
+</div>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit" class="btn btn-primary">프로필 수정</button>
+</form>
+{% endblock %}
