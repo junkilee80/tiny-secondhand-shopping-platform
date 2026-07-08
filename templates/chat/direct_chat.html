@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>1:1 메시지</h2>
+
+<div class="mb-3">
+    <p><strong>상품:</strong> {{ product.title }}</p>
+    <p><strong>상대방:</strong> {{ other_user.username }}</p>
+</div>
+
+<div class="card mb-4">
+    <div class="card-body">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <button type="submit" class="btn btn-primary">전송</button>
+            <a href="{% url 'chat:inbox' %}" class="btn btn-secondary">메시지함</a>
+        </form>
+    </div>
+</div>
+
+<h4>대화 내용</h4>
+
+{% for message in messages %}
+    <div class="card mb-2">
+        <div class="card-body">
+            <p class="mb-1">
+                <strong>{{ message.sender.username }}</strong>
+                <small class="text-muted">{{ message.created_at }}</small>
+            </p>
+
+            <p class="mb-0">{{ message.content|linebreaksbr }}</p>
+        </div>
+    </div>
+{% empty %}
+    <p>아직 대화 내용이 없습니다.</p>
+{% endfor %}
+{% endblock %}

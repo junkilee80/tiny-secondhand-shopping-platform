@@ -22,6 +22,15 @@
 <div class="mt-3">
     <a href="{% url 'products:list' %}" class="btn btn-secondary">목록으로</a>
 
+    {% if user.is_authenticated and user != product.seller %}
+        <a
+            href="{% url 'chat:direct' product.id product.seller.id %}"
+            class="btn btn-success"
+        >
+            판매자에게 문의하기
+        </a>
+    {% endif %}
+
     {% if user == product.seller %}
         <a href="{% url 'products:update' product.id %}" class="btn btn-warning">수정</a>
         <a href="{% url 'products:delete' product.id %}" class="btn btn-danger">삭제</a>

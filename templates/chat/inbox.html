@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>내 메시지함</h2>
+
+{% for conversation in conversations %}
+    <div class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title">
+                상품: {{ conversation.product.title }}
+            </h5>
+
+            <p class="card-text">
+                상대방: {{ conversation.other_user.username }}
+            </p>
+
+            <p class="card-text">
+                최근 메시지: {{ conversation.last_message.content|truncatechars:50 }}
+            </p>
+
+            <small class="text-muted">
+                {{ conversation.last_message.created_at }}
+            </small>
+
+            <br>
+
+            <a
+                href="{% url 'chat:direct' conversation.product.id conversation.other_user.id %}"
+                class="btn btn-outline-primary mt-2"
+            >
+                대화 열기
+            </a>
+        </div>
+    </div>
+{% empty %}
+    <p>아직 1:1 메시지가 없습니다.</p>
+{% endfor %}
+{% endblock %}

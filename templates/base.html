@@ -20,6 +20,7 @@
             <a class="nav-link" href="{% url 'chat:global' %}">Chat</a>
 
             {% if user.is_authenticated %}
+                <a class="nav-link" href="{% url 'chat:inbox' %}">Messages</a>
                 <a class="nav-link" href="{% url 'accounts:profile' %}">My Page</a>
 
                 <form method="post" action="{% url 'accounts:logout' %}" class="d-inline">
