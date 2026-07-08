@@ -1,6 +1,3 @@
-# tiny-secondhand-shopping-platform
-Secure coding assignment: Tiny Second-hand Shopping Platform
-
 # Tiny Second-hand Shopping Platform
 
 Secure Coding 과제용으로 개발한 Django 기반 중고거래 플랫폼입니다.
