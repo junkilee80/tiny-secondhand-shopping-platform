@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="p-5 mb-4 bg-light rounded-3">
+    <h1 class="display-5 fw-bold">Tiny Second-hand Shopping Platform</h1>
+    <p class="col-md-8 fs-4">
+        Secure coding assignment project.
+        Users can register, upload products, communicate, report malicious users or products,
+        transfer points, and search products.
+    </p>
+    <a class="btn btn-primary btn-lg" href="#" role="button">View Products</a>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h3>Users</h3>
+        <p>회원가입, 로그인, 마이페이지 기능을 제공합니다.</p>
+    </div>
+    <div class="col-md-4">
+        <h3>Products</h3>
+        <p>상품 등록, 조회, 검색, 신고 기능을 제공합니다.</p>
+    </div>
+    <div class="col-md-4">
+        <h3>Security</h3>
+        <p>입력값 검증, 권한 확인, CSRF 보호, XSS 방지를 고려합니다.</p>
+    </div>
+</div>
+{% endblock %}
