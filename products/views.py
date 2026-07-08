@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 from django.http import HttpResponseForbidden
 from django.shortcuts import get_object_or_404, redirect, render
 
@@ -9,8 +10,26 @@ from .models import Product
 
 
 def product_list(request):
+    query = request.GET.get("q", "").strip()
+
     products = Product.objects.filter(is_blocked=False).order_by("-created_at")
-    return render(request, "products/product_list.html", {"products": products})
+
+    if query:
+        if len(query) > 50:
+            query = query[:50]
+
+        products = products.filter(
+            Q(title__icontains=query) | Q(description__icontains=query)
+        )
+
+    return render(
+        request,
+        "products/product_list.html",
+        {
+            "products": products,
+            "query": query,
+        },
+    )
 
 
 def product_detail(request, product_id):

@@ -9,6 +9,27 @@
     {% endif %}
 </div>
 
+<form method="get" action="{% url 'products:list' %}" class="mb-4">
+    <div class="input-group">
+        <input
+            type="text"
+            name="q"
+            class="form-control"
+            placeholder="상품명 또는 설명 검색"
+            value="{{ query }}"
+            maxlength="50"
+        >
+        <button type="submit" class="btn btn-outline-primary">검색</button>
+        <a href="{% url 'products:list' %}" class="btn btn-outline-secondary">초기화</a>
+    </div>
+</form>
+
+{% if query %}
+    <p>
+        <strong>{{ query }}</strong> 검색 결과입니다.
+    </p>
+{% endif %}
+
 <div class="row">
     {% for product in products %}
         <div class="col-md-4 mb-3">
@@ -28,7 +49,11 @@
             </div>
         </div>
     {% empty %}
-        <p>등록된 상품이 없습니다.</p>
+        {% if query %}
+            <p>검색 결과가 없습니다.</p>
+        {% else %}
+            <p>등록된 상품이 없습니다.</p>
+        {% endif %}
     {% endfor %}
 </div>
 {% endblock %}
