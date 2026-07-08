@@ -16,7 +16,7 @@
 
         <div class="navbar-nav ms-auto">
             <a class="nav-link" href="/">Home</a>
-            <a class="nav-link" href="#">Products</a>
+            <a class="nav-link" href="{% url 'products:list' %}">Products</a>
             <a class="nav-link" href="#">Chat</a>
 
             {% if user.is_authenticated %}

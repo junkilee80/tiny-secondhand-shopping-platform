@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>{{ product.title }}</h2>
+
+<div class="card">
+    <div class="card-body">
+        {% if product.image %}
+            <img src="{{ product.image.url }}" class="img-fluid mb-3" alt="{{ product.title }}">
+        {% endif %}
+
+        <p><strong>가격:</strong> {{ product.price }}원</p>
+        <p><strong>판매자:</strong> {{ product.seller.username }}</p>
+        <p><strong>등록일:</strong> {{ product.created_at }}</p>
+
+        <hr>
+
+        <p>{{ product.description|linebreaks }}</p>
+    </div>
+</div>
+
+<div class="mt-3">
+    <a href="{% url 'products:list' %}" class="btn btn-secondary">목록으로</a>
+
+    {% if user == product.seller %}
+        <a href="{% url 'products:update' product.id %}" class="btn btn-warning">수정</a>
+        <a href="{% url 'products:delete' product.id %}" class="btn btn-danger">삭제</a>
+    {% endif %}
+</div>
+{% endblock %}
